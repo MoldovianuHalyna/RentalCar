@@ -1,8 +1,8 @@
 import { Route, Routes } from "react-router-dom";
 import "./App.css";
-import Home from "./components/Home/Home";
-import Catalog from "./components/Catalog/Catalog";
-import CatalogItem from "./components/CatalogItem/CatalogItem";
+import Home from "./pages/Home/Home";
+import Catalog from "./pages/Catalog/Catalog";
+import CatalogItem from "./pages/CatalogItem/CatalogItem";
 
 function App() {
   return (
