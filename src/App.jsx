@@ -1,5 +1,5 @@
 import { NavLink, Route, Routes } from "react-router-dom";
-import "./App.css";
+
 import Home from "./pages/Home/Home";
 import Catalog from "./pages/Catalog/Catalog";
 import CatalogItem from "./pages/CatalogItem/CatalogItem";
