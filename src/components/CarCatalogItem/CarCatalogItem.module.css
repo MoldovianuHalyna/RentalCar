@@ -1,0 +1,9 @@
+.carCardItem {
+  width: 276px;
+  height: 424px;
+}
+.carCardImage {
+  border-radius: 14px;
+  width: 276px;
+  height: 268px;
+}

@@ -74,13 +74,11 @@ const CarFilterElement = () => {
           </label>
           <div className={s.milleageContainer}>
             <Field
-              type="number"
               name="carMilleage.from"
               placeholder="From"
               className={s.formFieldMilleage}
             />
             <Field
-              type="number"
               name="carMilleage.to"
               placeholder="To"
               className={s.formFieldMilleage}
