@@ -1,24 +1,28 @@
-import { NavLink, Route, Routes } from "react-router-dom";
+import { Route, Routes } from "react-router-dom";
+import { lazy, Suspense } from "react";
 
-import Home from "./pages/Home/Home";
-import Catalog from "./pages/Catalog/Catalog";
-import CatalogItem from "./pages/CatalogItem/CatalogItem";
 import NotFound from "./components/NotFoundPage/NotFound";
+import Layout from "./components/Layout/Layout";
+import Loader from "./components/Loader/Loader";
+
+const HomePage = lazy(() => import("./pages/HomePage/HomePage"));
+const CatalogPage = lazy(() => import("./pages/CatalogPage/CatalogPage"));
+const CatalogItemPage = lazy(() =>
+  import("./pages/CatalogItemPage/CatalogItemPage")
+);
 
 function App() {
   return (
-    <div>
-      <div>
-        <NavLink to="/">Home Page</NavLink>
-        <NavLink to="/catalog"> Catalog </NavLink>
-      </div>
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/catalog" element={<Catalog />} />
-        <Route path="/catalog/:id" element={<CatalogItem />} />
-        <Route path="*" element={<NotFound />} />
-      </Routes>
-    </div>
+    <Layout>
+      <Suspense fallback={<Loader />}>
+        <Routes>
+          <Route path="/" element={<HomePage />} />
+          <Route path="/catalog" element={<CatalogPage />} />
+          <Route path="/catalog/:id" element={<CatalogItemPage />} />
+          <Route path="*" element={<NotFound />} />
+        </Routes>
+      </Suspense>
+    </Layout>
   );
 }
 
