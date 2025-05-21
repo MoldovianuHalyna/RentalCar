@@ -3,7 +3,7 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 26px 120px;
+  padding: 16px 120px;
   border-bottom: 1px solid #f2f4f7;
   background-color: #f2f4f7;
   font-weight: 500;
@@ -17,6 +17,7 @@
 }
 .activeLink {
   color: #0b44cd;
+  padding: 10px;
   transition: all 250ms linear;
   &:hover {
     color: #5377ce;
@@ -25,6 +26,7 @@
 }
 .inactiveLink {
   color: #101828;
+  padding: 10px;
   transition: all 250ms linear;
   &:hover {
     color: #26282c;

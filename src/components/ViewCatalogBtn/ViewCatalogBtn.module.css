@@ -1,0 +1,20 @@
+.viewCatalogBtn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  cursor: pointer;
+  border-radius: 12px;
+  padding: 12px 88px;
+  width: 276px;
+  height: 44px;
+  background-color: #3470ff;
+  font-size: 16px;
+  line-height: 1.25;
+  color: #fff;
+  transition: all 250ms linear;
+
+  &:hover {
+    background-color: #0b44cd;
+  }
+}

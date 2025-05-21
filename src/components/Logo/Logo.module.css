@@ -1,6 +1,9 @@
 .logoLink {
   font-weight: bold;
+  transition: all 250ms linear;
+  padding: 10px;
 }
+
 .logoRental {
   color: #101828;
 }

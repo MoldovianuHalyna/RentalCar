@@ -1,6 +1,30 @@
 .homePageContainer {
   background-image: url("../../../public/Images/HomePageImg/Picture-1.png");
-
+  object-fit: contain;
   width: 100%;
   height: 80vh;
+  display: flex;
+  flex-direction: column;
+  row-gap: 40px;
+  align-items: center;
+  justify-content: end;
+  padding-bottom: 60px;
+}
+.homepagetextWrapper {
+  text-align: center;
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  row-gap: 16px;
+  & > h1 {
+    line-height: 1.2;
+    font-weight: 700;
+    font-size: 60px;
+  }
+  & > p {
+    font-weight: 600;
+    font-size: 24px;
+    line-height: 1.33;
+    text-align: center;
+  }
 }

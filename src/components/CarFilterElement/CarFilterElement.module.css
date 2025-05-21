@@ -1,0 +1,35 @@
+.formWrapper {
+  display: flex;
+
+  align-items: center;
+  column-gap: 16px;
+  margin-top: 84px;
+}
+.formElement {
+  display: flex;
+  flex-direction: column;
+}
+.formLabel {
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 1.33333;
+  color: #8d929a;
+}
+.milleageContainer {
+  display: flex;
+}
+.formFieldMilleage {
+  border: none;
+  padding-left: 12px;
+  max-width: 160px;
+  height: 44px;
+  background-color: #f7f7f7;
+
+  &:first-child {
+    border-right: 1px solid #dadde1;
+    border-radius: 12px 0 0 12px;
+  }
+  &:last-child {
+    border-radius: 0 12px 12px 0;
+  }
+}
