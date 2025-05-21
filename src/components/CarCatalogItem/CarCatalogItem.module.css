@@ -1,9 +1,53 @@
 .carCardItem {
-  width: 276px;
+  max-width: 276px;
   height: 424px;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
 }
 .carCardImage {
   border-radius: 14px;
   width: 276px;
   height: 268px;
+  object-fit: fill;
+}
+.carCardTextWrapper1 {
+  display: flex;
+  justify-content: space-between;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 1.25;
+  color: #101828;
+
+  & > p > span {
+    color: #3470ff;
+    text-transform: uppercase;
+  }
+}
+.iconwrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.carCardTextWrapper {
+  display: flex;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 1.33333;
+  color: #8d929a;
+  & > p {
+    padding: 0 4px;
+    position: relative;
+  }
+  & > p:after {
+    content: "";
+    position: absolute;
+    right: 0;
+    top: 0;
+
+    width: 1px;
+    background-color: #8d929a;
+    min-height: 100%;
+  }
 }

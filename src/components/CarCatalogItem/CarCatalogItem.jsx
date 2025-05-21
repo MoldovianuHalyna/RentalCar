@@ -1,4 +1,6 @@
+import ReadMoreBtn from "../ReadMoreBtn/ReadMoreBtn";
 import s from "./CarCatalogItem.module.css";
+import { TbCurrencyDollar } from "react-icons/tb";
 
 const CarCatalogItem = ({
   src,
@@ -11,25 +13,35 @@ const CarCatalogItem = ({
   type,
   mileage,
 }) => {
+  const addres = address;
+
+  const addressParts = addres.split(",");
+
+  const city = addressParts[1]?.trim();
+  const country = addressParts[2]?.trim();
   return (
     <div className={s.carCardItem}>
       <img className={s.carCardImage} src={src} alt={`${brand} ${model}`} />
-      <div className={s.carCardTextWrapper}>
+      <div className={s.carCardTextWrapper1}>
         <p>
           {brand}
-          {model},{year}
+          <span>{model}</span>,{year}
         </p>
-        <p>{rentalPrice}</p>
+        <div className={s.iconwrapper}>
+          <TbCurrencyDollar />
+          {rentalPrice}
+        </div>
       </div>
-      <div>
-        <p>{address}</p>
-
+      <div className={s.carCardTextWrapper}>
+        <p>{city}</p>
+        <p>{country}</p>
         <p>{rentalCompany}</p>
       </div>
-      <div>
+      <div className={s.carCardTextWrapper}>
         <p>{type}</p>
-        <p>{mileage}</p>
+        <p>{mileage}km</p>
       </div>
+      <ReadMoreBtn />
     </div>
   );
 };
