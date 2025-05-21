@@ -1,0 +1,21 @@
+.loadMoreBtn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  cursor: pointer;
+  border: 1px solid #3470ff;
+  border-radius: 12px;
+  padding: 12px;
+  width: 156px;
+  height: 44px;
+
+  font-size: 16px;
+  line-height: 1.25;
+  color: #101828;
+  transition: all 250ms linear;
+
+  &:hover {
+    border: 1px solid #0b44cd;
+  }
+}
