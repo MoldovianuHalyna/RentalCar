@@ -55,7 +55,7 @@ const RentCarForm = () => {
           <Field className={s.formField} name="email" placeholder="Email*" />
           <ErrorMessage name="email" component="p" className={s.error} />
 
-          <DatepickerComponent name="bookingDate" />
+          <DatepickerComponent name="bookingDate" minDate={new Date()} />
           <ErrorMessage name="bookingDate" component="p" className={s.error} />
           <Field className={s.formField} name="comment" placeholder="Comment" />
           <SendBtn />

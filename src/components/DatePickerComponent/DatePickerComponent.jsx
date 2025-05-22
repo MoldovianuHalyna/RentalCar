@@ -4,7 +4,7 @@ import "react-datepicker/dist/react-datepicker.css";
 import s from "./DatepickerComponent.module.css";
 import "./reactDatepickerOverrides.css";
 
-const DatepickerComponent = ({ name }) => {
+const DatepickerComponent = ({ name, minDate }) => {
   const { setFieldValue } = useFormikContext();
   const [field] = useField(name);
 
@@ -15,6 +15,7 @@ const DatepickerComponent = ({ name }) => {
       dateFormat="dd/MM/yyyy"
       placeholderText="Booking date"
       className={s.datePicker}
+      minDate={minDate}
     />
   );
 };
