@@ -7,7 +7,7 @@ import Loader from "../Loader/Loader";
 import LoadMoreBtn from "../LoadMoreBtn/LoadMoreBtn";
 import s from "./CarCatalog.module.css";
 
-const CarCatalog = () => {
+const CarCatalog = ({ filters }) => {
   const dispatch = useDispatch();
   const cars = useSelector(selectCars);
   const isLoading = useSelector((state) => state.cars.isLoading);
@@ -17,21 +17,20 @@ const CarCatalog = () => {
   const [hasMore, setHasMore] = useState(true);
 
   useEffect(() => {
-    if (page === 1) {
-      dispatch(fetchCars({ page: 1, limit: 8 })).then((res) => {
-        setHasMore(res.payload.totalPages > 1);
-      });
-    }
-  }, [dispatch, page]);
+    setPage(1);
+    dispatch(fetchCars({ page: 1, limit: 8, ...filters })).then((res) => {
+      setHasMore(res.payload.totalPages > 1);
+    });
+  }, [dispatch, filters]);
 
   const handleLoadMoreBtn = () => {
     const nextPage = page + 1;
-    dispatch(fetchCars({ page: nextPage, limit: 8 })).then((res) => {
-      if (res.payload.cars.length > 0) {
+    dispatch(fetchCars({ page: nextPage, limit: 8, ...filters })).then(
+      (res) => {
         setPage(nextPage);
         setHasMore(nextPage < res.payload.totalPages);
       }
-    });
+    );
   };
 
   if (isLoading && page === 1) return <Loader />;
@@ -46,7 +45,6 @@ const CarCatalog = () => {
           </li>
         ))}
       </ul>
-
       {hasMore && !isLoading && <LoadMoreBtn onClick={handleLoadMoreBtn} />}
     </div>
   );

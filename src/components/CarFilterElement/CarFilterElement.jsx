@@ -10,7 +10,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { fetchBrands } from "../../redux/api/operations";
 import { selectBrands } from "../../redux/api/selectors";
 
-const CarFilterElement = () => {
+const CarFilterElement = ({ onSubmit }) => {
   const initialValues = {
     carBrand: "",
     priceHour: "",
@@ -18,9 +18,6 @@ const CarFilterElement = () => {
       from: "",
       to: "",
     },
-  };
-  const handleFormSubmit = (values) => {
-    console.log("Submitted values:", values);
   };
 
   const dispatch = useDispatch();
@@ -34,8 +31,9 @@ const CarFilterElement = () => {
     value: brand,
     label: brand,
   }));
+
   return (
-    <Formik initialValues={initialValues} onSubmit={handleFormSubmit}>
+    <Formik initialValues={initialValues} onSubmit={onSubmit}>
       <Form className={s.formWrapper}>
         <div className={s.formElement}>
           <label className={s.formLabel} htmlFor="carBrand">
@@ -72,7 +70,7 @@ const CarFilterElement = () => {
                   options={options}
                   value={options.find((option) => option.value === field.value)}
                   onChange={(option) =>
-                    form.setFieldValue("carBrand", option.value)
+                    form.setFieldValue("priceHour", option.value)
                   }
                   placeholder="Choose a price"
                 />
