@@ -12,7 +12,7 @@ const RentCarForm = () => {
   };
   return (
     <div className={s.commonFormWrapper}>
-      <div>
+      <div className={s.commonFormText}>
         <p className={s.mainHeader}>Book your car now</p>
         <p className={s.description}>
           Stay connected! We are always ready to help you.

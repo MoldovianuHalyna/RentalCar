@@ -13,3 +13,16 @@ export const fetchCars = createAsyncThunk("fetchCars", async (_, thunkAPI) => {
     return thunkAPI.rejectWithValue(error.message);
   }
 });
+
+export const fetchOneCar = createAsyncThunk(
+  "fetchOneCar",
+  async (carId, thunkAPI) => {
+    try {
+      const response = await axiosFetcher(`cars/${carId}`);
+      console.log(response.data);
+      return response.data;
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error.message);
+    }
+  }
+);

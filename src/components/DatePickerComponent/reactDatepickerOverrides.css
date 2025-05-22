@@ -4,7 +4,7 @@
 .react-datepicker {
   font-family: var(--second-family);
   border: 1px solid #3470ff;
-
+  overflow: hidden;
   border-radius: 12px;
 }
 .react-datepicker__current-month,

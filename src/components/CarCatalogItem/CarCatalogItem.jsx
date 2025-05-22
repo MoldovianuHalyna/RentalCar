@@ -43,7 +43,7 @@ const CarCatalogItem = ({
         <p>{type}</p>
         <p>{mileage}km</p>
       </div>
-      <ReadMoreBtn />
+      <ReadMoreBtn id={id} />
     </div>
   );
 };

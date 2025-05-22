@@ -1,27 +1,17 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { fetchCars } from "./operations";
+import { fetchCars, fetchOneCar } from "./operations";
 
 const initialState = {
   carItems: [],
   isError: false,
   isLoading: false,
+  selectedCar: null,
 };
 
 const slice = createSlice({
   name: "cars",
   initialState,
-  reducers: {
-    fetchSuccess: (state, action) => {
-      state.carItems = action.payload;
-      state.isLoading = false;
-    },
-    setIsloading: (state, action) => {
-      state.isLoading = action.payload;
-    },
-    setIsError: (state, action) => {
-      state.isError = action.payload;
-    },
-  },
+
   extraReducers: (builder) => {
     builder
       .addCase(fetchCars.pending, (state) => {
@@ -36,6 +26,20 @@ const slice = createSlice({
         state.isLoading = false;
         state.isError = true;
         console.error("Fetch error:", action.payload);
+      })
+      .addCase(fetchOneCar.pending, (state) => {
+        state.isLoading = true;
+        state.isError = false;
+        state.selectedCar = null;
+      })
+      .addCase(fetchOneCar.fulfilled, (state, action) => {
+        state.selectedCar = action.payload;
+        state.isLoading = false;
+      })
+      .addCase(fetchOneCar.rejected, (state, action) => {
+        state.isLoading = false;
+        state.isError = true;
+        console.error("Fetch single car error:", action.payload);
       });
   },
 });
