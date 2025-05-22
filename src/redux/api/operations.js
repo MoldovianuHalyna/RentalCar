@@ -31,7 +31,7 @@ export const fetchBrands = createAsyncThunk(
   async (_, thunkAPI) => {
     try {
       const response = await axiosFetcher(`brands`);
-      console.log(response);
+
       return response.data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
