@@ -4,13 +4,17 @@
   display: flex;
   justify-content: space-between;
   flex-direction: column;
+  position: relative;
 }
+
 .carCardImage {
+  position: relative;
   border-radius: 14px;
   width: 276px;
   height: 268px;
   object-fit: fill;
 }
+
 .carCardTextWrapper1 {
   display: flex;
   justify-content: space-between;
