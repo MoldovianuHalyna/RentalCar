@@ -1,6 +1,8 @@
 import { useField, useFormikContext } from "formik";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
+import s from "./DatepickerComponent.module.css";
+import "./reactDatepickerOverrides.css";
 
 const DatepickerComponent = ({ name }) => {
   const { setFieldValue } = useFormikContext();
@@ -11,7 +13,8 @@ const DatepickerComponent = ({ name }) => {
       selected={field.value}
       onChange={(val) => setFieldValue(name, val)}
       dateFormat="dd/MM/yyyy"
-      placeholderText="Select a date"
+      placeholderText="Booking date"
+      className={s.datePicker}
     />
   );
 };

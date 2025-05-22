@@ -1,1 +1,14 @@
-@import "react-datepicker/dist/react-datepicker.css";
+.datePicker {
+  outline: transparent;
+  border: none;
+  font-family: var(--font-family);
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 1.25;
+  color: #8d929a;
+  border-radius: 12px;
+  padding: 12px 20px;
+  width: 576px;
+  height: 48px;
+  background-color: #f7f7f7;
+}
