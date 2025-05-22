@@ -2,7 +2,7 @@ import s from "./SendBtn.module.css";
 
 const SendBtn = () => {
   return (
-    <button type="button" className={s.sendBTN}>
+    <button type="submit" className={s.sendBTN}>
       Send
     </button>
   );

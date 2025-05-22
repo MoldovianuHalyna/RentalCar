@@ -1,6 +1,6 @@
 import { Route, Routes } from "react-router-dom";
 import { lazy, Suspense } from "react";
-
+import { ToastContainer } from "react-toastify";
 import NotFound from "./components/NotFoundPage/NotFound";
 import Layout from "./components/Layout/Layout";
 import Loader from "./components/Loader/Loader";
@@ -21,6 +21,7 @@ function App() {
           <Route path="/catalog/:id" element={<CatalogItemPage />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
+        <ToastContainer />
       </Suspense>
     </Layout>
   );

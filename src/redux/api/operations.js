@@ -7,7 +7,7 @@ export const axiosFetcher = axios.create({
 export const fetchCars = createAsyncThunk("fetchCars", async (_, thunkAPI) => {
   try {
     const response = await axiosFetcher(`cars`);
-    console.log(response.data);
+
     return response.data.cars;
   } catch (error) {
     return thunkAPI.rejectWithValue(error.message);
@@ -19,7 +19,7 @@ export const fetchOneCar = createAsyncThunk(
   async (carId, thunkAPI) => {
     try {
       const response = await axiosFetcher(`cars/${carId}`);
-      console.log(response.data);
+
       return response.data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);

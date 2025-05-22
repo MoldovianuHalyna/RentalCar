@@ -25,3 +25,22 @@ ul {
   list-style: none;
   padding: 0;
 }
+
+.Toastify__progress-bar {
+  background: linear-gradient(to right, #3470ff, #ffffff);
+  height: 6px;
+  border-radius: 3px;
+}
+
+.Toastify__toast {
+  font-family: "Manrope", sans-serif;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 1.25;
+  color: #8d929a;
+}
+
+.Toastify__toast-theme--dark {
+  background-color: #3541c3;
+  color: #ffffff;
+}
