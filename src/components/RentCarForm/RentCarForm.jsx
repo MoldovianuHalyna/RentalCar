@@ -1,8 +1,9 @@
-import { Field, Form, Formik } from "formik";
+import { ErrorMessage, Field, Form, Formik } from "formik";
 import DatepickerComponent from "../DatePickerComponent/DatePickerComponent.jsx";
 import s from "./RentCarForm.module.css";
 import SendBtn from "../SendBtn/SendBtn.jsx";
 import { Slide, toast } from "react-toastify";
+import { object, string, date } from "yup";
 
 const RentCarForm = () => {
   const initialValues = {
@@ -11,6 +12,14 @@ const RentCarForm = () => {
     bookingDate: "",
     comment: "",
   };
+  const validationSchema = object({
+    name: string().trim().required("Name is required"),
+    email: string()
+      .email("Invalid email address")
+      .required("Email is required"),
+    bookingDate: date().required("Booking date is required"),
+  });
+
   const handleSubmit = (values, { resetForm }) => {
     toast(`Thank you, ${values.name} our manager will contact you shortly`, {
       position: "top-center",
@@ -34,21 +43,20 @@ const RentCarForm = () => {
           Stay connected! We are always ready to help you.
         </p>
       </div>
-      <Formik initialValues={initialValues} onSubmit={handleSubmit}>
+      <Formik
+        initialValues={initialValues}
+        onSubmit={handleSubmit}
+        validationSchema={validationSchema}
+      >
         <Form className={s.formWrapper}>
-          <Field
-            className={s.formField}
-            name="name"
-            placeholder="Name*"
-            required
-          />
-          <Field
-            className={s.formField}
-            name="email"
-            placeholder="Email*"
-            required
-          />
+          <Field className={s.formField} name="name" placeholder="Name*" />
+          <ErrorMessage name="name" component="p" className={s.error} />
+
+          <Field className={s.formField} name="email" placeholder="Email*" />
+          <ErrorMessage name="email" component="p" className={s.error} />
+
           <DatepickerComponent name="bookingDate" />
+          <ErrorMessage name="bookingDate" component="p" className={s.error} />
           <Field className={s.formField} name="comment" placeholder="Comment" />
           <SendBtn />
         </Form>
