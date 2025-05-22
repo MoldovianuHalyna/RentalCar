@@ -3,18 +3,20 @@ import ReadMoreBtn from "../ReadMoreBtn/ReadMoreBtn";
 import s from "./CarCatalogItem.module.css";
 import { TbCurrencyDollar } from "react-icons/tb";
 
-const CarCatalogItem = ({
-  id,
-  src,
-  brand,
-  model,
-  year,
-  rentalPrice,
-  address,
-  rentalCompany,
-  type,
-  mileage,
-}) => {
+const CarCatalogItem = ({ car }) => {
+  const {
+    id,
+    img,
+    brand,
+    model,
+    year,
+    rentalPrice,
+    address,
+    rentalCompany,
+    type,
+    mileage,
+  } = car;
+
   const addres = address;
   const addressParts = addres.split(",");
   const city = addressParts[1]?.trim();
@@ -23,7 +25,7 @@ const CarCatalogItem = ({
   return (
     <div className={s.carCardItem}>
       <HeartComponent carId={id} />
-      <img className={s.carCardImage} src={src} alt={`${brand} ${model}`} />
+      <img className={s.carCardImage} src={img} alt={`${brand} ${model}`} />
       <div className={s.carCardTextWrapper1}>
         <p>
           {brand}

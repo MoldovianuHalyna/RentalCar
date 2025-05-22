@@ -20,7 +20,14 @@ const slice = createSlice({
         state.isError = false;
       })
       .addCase(fetchCars.fulfilled, (state, action) => {
-        state.carItems = action.payload;
+        const { cars, page } = action.payload;
+
+        if (page === 1) {
+          state.carItems = cars;
+        } else {
+          state.carItems = [...state.carItems, ...cars];
+        }
+
         state.isLoading = false;
       })
       .addCase(fetchCars.rejected, (state, action) => {
