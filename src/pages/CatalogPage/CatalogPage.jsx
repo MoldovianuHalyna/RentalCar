@@ -9,9 +9,12 @@ const Catalog = () => {
     const formattedFilters = {
       brand: values.carBrand || undefined,
       rentalPrice: values.priceHour || undefined,
-      minMileage: values.carMilleage?.from || undefined,
-      maxMileage: values.carMilleage?.to || undefined,
+      carMilleage: {
+        from: values.carMilleage?.from,
+        to: values.carMilleage?.to,
+      },
     };
+    console.log(formattedFilters);
     setFilters(formattedFilters);
   };
 
