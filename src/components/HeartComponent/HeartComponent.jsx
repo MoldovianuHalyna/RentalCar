@@ -1,12 +1,16 @@
 import { FaHeart, FaRegHeart } from "react-icons/fa";
-import React, { useState } from "react";
-import s from "./HeartComponent.module.css";
 
-const HeartComponent = () => {
-  const [isActive, setIsActive] = useState(false);
+import s from "./HeartComponent.module.css";
+import { useDispatch, useSelector } from "react-redux";
+import { toggleFavorite } from "../../redux/heart/heartSlice";
+
+const HeartComponent = ({ carId }) => {
+  const dispatch = useDispatch();
+  const favorites = useSelector((state) => state.heart.favorites);
+  const isActive = favorites.includes(carId);
 
   const handleClick = () => {
-    setIsActive(!isActive);
+    dispatch(toggleFavorite(carId));
   };
   return (
     <div>

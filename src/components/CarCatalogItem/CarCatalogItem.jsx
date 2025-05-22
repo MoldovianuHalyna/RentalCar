@@ -4,6 +4,7 @@ import s from "./CarCatalogItem.module.css";
 import { TbCurrencyDollar } from "react-icons/tb";
 
 const CarCatalogItem = ({
+  id,
   src,
   brand,
   model,
@@ -21,7 +22,7 @@ const CarCatalogItem = ({
 
   return (
     <div className={s.carCardItem}>
-      <HeartComponent />
+      <HeartComponent carId={id} />
       <img className={s.carCardImage} src={src} alt={`${brand} ${model}`} />
       <div className={s.carCardTextWrapper1}>
         <p>

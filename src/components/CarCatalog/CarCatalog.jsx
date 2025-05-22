@@ -57,6 +57,7 @@ const CarCatalog = () => {
                 rentalCompany={rentalCompany}
                 type={type}
                 mileage={mileage}
+                id={id}
               />
             </li>
           )
