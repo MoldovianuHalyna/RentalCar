@@ -4,10 +4,11 @@ import Select from "react-select";
 import s from "./CarFilterElement.module.css";
 import SubmitBtn from "../SubmitBtn/SubmitBtn";
 import { customStyles } from "../../helpers/customStylesSelect";
-import {
-  carBrandOptions,
-  carPriceOptions,
-} from "../../helpers/selectorOptions";
+import { carPriceOptions } from "../../helpers/selectorOptions";
+import { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { fetchBrands } from "../../redux/api/operations";
+import { selectBrands } from "../../redux/api/selectors";
 
 const CarFilterElement = () => {
   const initialValues = {
@@ -22,6 +23,17 @@ const CarFilterElement = () => {
     console.log("Submitted values:", values);
   };
 
+  const dispatch = useDispatch();
+  const brands = useSelector(selectBrands);
+
+  useEffect(() => {
+    dispatch(fetchBrands());
+  }, [dispatch]);
+
+  const brandOptions = brands.map((brand) => ({
+    value: brand,
+    label: brand,
+  }));
   return (
     <Formik initialValues={initialValues} onSubmit={handleFormSubmit}>
       <Form className={s.formWrapper}>
@@ -31,13 +43,13 @@ const CarFilterElement = () => {
           </label>
           <Field name="carBrand">
             {({ field, form }) => {
-              const options = carBrandOptions;
-
               return (
                 <Select
                   styles={customStyles}
-                  options={options}
-                  value={options.find((option) => option.value === field.value)}
+                  options={brandOptions}
+                  value={brandOptions.find(
+                    (option) => option.value === field.value
+                  )}
                   onChange={(option) =>
                     form.setFieldValue("carBrand", option.value)
                   }
@@ -49,7 +61,7 @@ const CarFilterElement = () => {
         </div>
         <div className={s.formElement}>
           <label className={s.formLabel} htmlFor="priceHour">
-            Price/1 hour{" "}
+            Price/1 hour
           </label>
           <Field name="priceHour">
             {({ field, form }) => {

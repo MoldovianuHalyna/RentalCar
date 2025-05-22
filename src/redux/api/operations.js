@@ -26,3 +26,15 @@ export const fetchOneCar = createAsyncThunk(
     }
   }
 );
+export const fetchBrands = createAsyncThunk(
+  "fetchBrands",
+  async (_, thunkAPI) => {
+    try {
+      const response = await axiosFetcher(`brands`);
+      console.log(response);
+      return response.data;
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error.message);
+    }
+  }
+);

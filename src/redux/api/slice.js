@@ -1,11 +1,12 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { fetchCars, fetchOneCar } from "./operations";
+import { fetchBrands, fetchCars, fetchOneCar } from "./operations";
 
 const initialState = {
   carItems: [],
   isError: false,
   isLoading: false,
   selectedCar: null,
+  brands: [],
 };
 
 const slice = createSlice({
@@ -40,6 +41,19 @@ const slice = createSlice({
         state.isLoading = false;
         state.isError = true;
         console.error("Fetch single car error:", action.payload);
+      })
+      .addCase(fetchBrands.pending, (state) => {
+        state.isLoading = true;
+        state.isError = false;
+      })
+      .addCase(fetchBrands.fulfilled, (state, action) => {
+        state.isLoading = false;
+        state.brands = action.payload;
+      })
+      .addCase(fetchBrands.rejected, (state, action) => {
+        state.isLoading = false;
+        state.isError = true;
+        console.error("Fetch brands error", action.payload);
       });
   },
 });
