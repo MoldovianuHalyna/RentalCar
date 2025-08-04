@@ -1,56 +1,56 @@
-🚗 RentalCar - Веб-додаток для оренди автомобілів
-📋 Опис проєкту
-RentalCar - це веб-додаток, створений для компанії, яка займається орендою автомобілів. Додаток дозволяє користувачам переглядати каталог доступних транспортних засобів, застосовувати фільтри, переглядати деталі конкретного автомобіля та орендувати авто через інтерактивну форму.
+RentalCar - Web Application for Car Rental
+📋 Project Description
+RentalCar is a web application developed for a car rental company. The app allows users to browse a catalog of available vehicles, apply filters, view details of specific cars, and rent a car through an interactive form.
 
-🔧 Основні функції
-Домашня сторінка з банером та кнопкою переходу до каталогу.
+🔧 Key Features
+Home Page with a banner and a button linking to the catalog.
 
-Каталог з автомобілями, що підтримує:
+Car Catalog that supports:
 
-фільтрацію за брендом, ціною, пробігом (на бекенді),
+Filtering by brand, price, and mileage (handled on the backend),
 
-додавання авто до обраного (збереження в localStorage),
+Adding cars to favorites (saved in localStorage),
 
-пагінацію (реалізовану через бекенд),
+Pagination (implemented via backend),
 
-завантаження нових карток по кнопці "Load More".
+Loading more car cards with a "Load More" button.
 
-Сторінка деталей автомобіля з повним описом і формою оренди.
+Car Detail Page with a full description and rental form.
 
-Реалізована маршрутизація:
+Routing implemented:
 
-/ - домашня сторінка
+/ - Home page
 
-/catalog - сторінка каталогу
+/catalog - Catalog page
 
-/catalog/:id - сторінка обраного авто
+/catalog/:id - Selected car detail page
 
-Нотифікація після успішного бронювання авто.
+Notification upon successful car booking.
 
-Повна відповідність до макету (десктопна версія).
+Fully responsive to the design layout (desktop version).
 
-⚙️ Технології
-⚛️ React - бібліотека для побудови UI
+⚙️ Technologies Used
+⚛️ React – UI library
 
-🌐 React Router - для маршрутизації між сторінками
+🌐 React Router – Page routing
 
-📦 Redux Toolkit - управління глобальним станом
+📦 Redux Toolkit – Global state management
 
-🧠 React Selectors - оптимізація вибірки даних зі стору
+🧠 React Selectors – Optimized data selection from the store
 
-📡 Axios - для HTTP-запитів до API
+📡 Axios – HTTP requests to the API
 
-📄 Formik - керування формами і валідація
+📄 Formik – Form handling and validation
 
-🎨 CSS Modules - ізольовані стилі компонентів
+🎨 CSS Modules – Component-scoped styling
 
-❤️ React Icons - іконки
+❤️ React Icons – Icons
 
-🔄 React Spinners -компонент завантаження (Loader)
+🔄 React Spinners – Loading component (Loader)
 
-persistGate для збереження обраного
-Проєкт задеплоєно на Vercel
-((https://rental-car-ruby.vercel.app/))
+persistGate – To preserve selected favorites
 
-Author:
-Moldovianu Halyna
+🔗 Project is deployed on Vercel:
+https://rental-car-ruby.vercel.app/
+
+Author: Moldovianu Halyna
